@@ -8,9 +8,9 @@
 //
 
 import Foundation
-print("Welcome to the Simple Calculator")
+print("Welcome to the Fun Calculator! 🤪 ")
 sleep(1)
-print("pick one A. Calculator B. High order function")
+print("pick one A. Calculator  B. HighOrderFunction")
 sleep(1)
 
 let pickOne = readLine()?.lowercased() ?? "a"
@@ -18,6 +18,10 @@ let pickOne = readLine()?.lowercased() ?? "a"
 
 if pickOne == "a"{
 print("Please input an equation that contains ONLY NUMBERS! Thank You! EX. 5 + 5")
+    sleep(1)
+    print("OR")
+    sleep(1)
+    print("you can play the Guessing game EXAMPLE: 5 ? 5 guess what operation is the question mark")
 var randomOperations: [String] = ["-", "/","+","*"]
 var randomOperationsElement = randomOperations.randomElement() ?? ""
 
@@ -97,9 +101,14 @@ if isQuestionMark {
 } while  randomOperations1
 
 }
-
+print("=================================F i L T E R ============================================")
 
 } else if pickOne == "b" {
+    print("Since Picked b. Please pick a HighOrderFunction, filter, map, or reduce")
+    sleep(1)
+    let highOrderFunction = readLine()?.lowercased() ?? "filter"
+    
+   if highOrderFunction == "filter"{
     print("high order function EX. filter 1,2,3 by < 2")
     
     let playersResponse = readLine() ?? "function"
@@ -109,13 +118,12 @@ if isQuestionMark {
         
        for num in arr {
        if closure(num) {
+        //
            filterResults.append(num)
            }
        }
        return filterResults
     }
-      
-    
     var unwrappedArrayNum = [Double]()
 
     let playersResponseB = playersResponse.components(separatedBy: " ") // reads the readLine and the component separates into an array of strings by the spaces
@@ -135,17 +143,65 @@ if isQuestionMark {
     let filterNumberBy = Double(playersResponseB[4]) ?? 4.0
     
     if playersResponseB[3] == "<" {
-    print(filterFunc(arr: unwrappedArrayNum, closure: {$0 < filterNumberBy}))
+//    print(filterFunc(arr: unwrappedArrayNum, closure: {$0 < filterNumberBy}))
     } else if playersResponseB[3] == ">" {
     print(filterFunc(arr: unwrappedArrayNum, closure: {$0 > filterNumberBy}))
-
+        
+        
+        
+        
+        
+print("================================== M A P S =================================================")
         }
+   } else if highOrderFunction == "map" {
+    
+    print("high Order Function E X A M P L E ‼️: maps 1,2,3 by / 2 ")
+    
+    let gamerResponse = readLine() ?? "Operation" //"maps 1,2,3 by / 2"
+    func mapsGame(arr: [Double], closure: (Double) -> Double) -> [Double] {
+      var mapsFunctionGame = [Double]()
+      for num in arr {
+        mapsFunctionGame.append(closure(num))
+      }
+      
+      return mapsFunctionGame
+    }
+    
+    var unwrappedArrayMapNumber = [Double]()
+    let gamerResponseA = gamerResponse.components(separatedBy: " ") // reads the readLine and the component separates into an array of strings by the spaces // ["map","1,2,3","by","*","50"]
+    let gamerResponse1 = gamerResponseA[1].components(separatedBy: ",")
+         
+         for nums in gamerResponse1 {
+             if let unwrappedNumMap = Double(nums) {
+                // we use if let when we have a condition
+                 unwrappedArrayMapNumber.append(unwrappedNumMap)
+                // append is adding thing to the array
+             } else {
+                print(nums)
+                
+            }
+         }
+    
+    
+    let mapNumberBy = Double(gamerResponseA[4]) ?? 4.0
+    
+    if gamerResponseA[3] == "*" {
+        print(mapsGame(arr: unwrappedArrayMapNumber, closure: {$0 * mapNumberBy}))
+        
+    } else if gamerResponseA[3] == "/" {
+        print(mapsGame(arr: unwrappedArrayMapNumber, closure: {$0 / mapNumberBy}))
+
+    } else if gamerResponseA[3] == "+" {
+        print(mapsGame(arr: unwrappedArrayMapNumber, closure: {$0 + mapNumberBy}))
+        
+    } else if gamerResponseA[3] == "-" {
+        print(mapsGame(arr: unwrappedArrayMapNumber, closure: {$0 + mapNumberBy}))
+    }
     
     
     
     
-    
-    
+    }
     }
     
     
