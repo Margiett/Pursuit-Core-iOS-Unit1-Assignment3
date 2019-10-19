@@ -101,9 +101,10 @@ if isQuestionMark {
 } while  randomOperations1
 
 }
-print("=================================F i L T E R ============================================")
+
 
 } else if pickOne == "b" {
+    print("=================================F i L T E R ============================================")
     print("Since Picked b. Please pick a HighOrderFunction, filter, map, or reduce")
     sleep(1)
     let highOrderFunction = readLine()?.lowercased() ?? "filter"
@@ -115,7 +116,7 @@ print("=================================F i L T E R ============================
     
     func filterFunc(arr:[Double], closure:(Double)-> Bool) -> [Double]{
       var filterResults = [Double]()
-        
+    
        for num in arr {
        if closure(num) {
         //
@@ -202,6 +203,7 @@ print("================================== M A P S ==============================
     
     
     }
+
     }
     
     
